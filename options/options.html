@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>就活エントリー自動入力 - 個人情報設定</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>個人情報設定</h1>
+      <p class="note">就活エントリーフォーム（i-webs.jp / axol.jp / e2r.jp / snar.jp）へ自動入力する個人情報を登録します。<br>
+      データはこの PC 内（chrome.storage.local）にのみ保存され、外部送信されません。</p>
+    </header>
+    <form id="profileForm">
+      <fieldset>
+        <legend>氏名</legend>
+        <div class="row">
+          <label>漢字 姓<input type="text" id="lastNameKanji" placeholder="山田"></label>
+          <label>漢字 名<input type="text" id="firstNameKanji" placeholder="太郎"></label>
+        </div>
+        <div class="row">
+          <label>カナ セイ<input type="text" id="lastNameKana" placeholder="ヤマダ"></label>
+          <label>カナ メイ<input type="text" id="firstNameKana" placeholder="タロウ"></label>
+        </div>
+        <div class="row">
+          <label>ローマ字 姓<input type="text" id="lastNameRoma" placeholder="Yamada"></label>
+          <label>ローマ字 名<input type="text" id="firstNameRoma" placeholder="Taro"></label>
+        </div>
+        <p class="hint">カナは全角カナ。ローマ字はサイトによっては必要（axol.jp 等）。</p>
+      </fieldset>
+      <fieldset>
+        <legend>生年月日・性別</legend>
+        <div class="row">
+          <label>生年<select id="birthYear"></select></label>
+          <label>月<select id="birthMonth"></select></label>
+          <label>日<select id="birthDay"></select></label>
+        </div>
+        <div class="row">
+          <label class="radio"><input type="radio" name="gender" value="1"> 男</label>
+          <label class="radio"><input type="radio" name="gender" value="2"> 女</label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>現住所</legend>
+        <div class="row"><label>郵便番号<input type="text" id="postalCode" placeholder="275-0016"></label></div>
+        <div class="row"><label>都道府県<select id="prefecture"></select></label></div>
+        <div class="row"><label>市区郡<input type="text" id="addressCity" placeholder="千代田区"></label></div>
+        <div class="row"><label>町域・番地<input type="text" id="addressStreet" placeholder="丸の内1-1-1"></label></div>
+        <div class="row"><label>アパート・マンション名<input type="text" id="addressBuilding" placeholder="(任意)"></label></div>
+        <p class="hint">入力フォームによっては「市区郡」と「町域・番地」が1欄にまとまっている場合は自動で連結して入力します。</p>
+        <div class="row"><label>自宅電話<input type="text" id="homePhone" placeholder="03-1234-5678 (任意)"></label></div>
+        <div class="row"><label>携帯電話<input type="text" id="mobilePhone" placeholder="090-0000-0000"></label></div>
+      </fieldset>
+      <fieldset>
+        <legend>休暇中の連絡先</legend>
+        <div class="row"><label class="checkbox"><input type="checkbox" id="sameAsHome">現住所と同じ</label></div>
+        <div id="vacationFields">
+          <div class="row"><label>郵便番号<input type="text" id="vacationPostalCode"></label></div>
+          <div class="row"><label>都道府県<select id="vacationPrefecture"></select></label></div>
+          <div class="row"><label>市区郡<input type="text" id="vacationAddressCity"></label></div>
+          <div class="row"><label>町域・番地<input type="text" id="vacationAddressStreet"></label></div>
+          <div class="row"><label>アパート・マンション名<input type="text" id="vacationAddressBuilding"></label></div>
+          <div class="row"><label>電話<input type="text" id="vacationPhone"></label></div>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>学校情報（補足）</legend>
+        <div class="row"><label>ゼミ・研究室名<input type="text" id="labName" placeholder="○○研究室"></label></div>
+        <div class="row"><label>クラブ・サークル名<input type="text" id="clubName" placeholder="(任意)"></label></div>
+        <div class="row">
+          <label>卒業年<select id="graduationYear"></select></label>
+          <label>月<select id="graduationMonth"></select></label>
+          <label>区分<select id="graduationStatus"><option value="0">卒業（修了）見込み</option><option value="1">卒業（修了）</option></select></label>
+        </div>
+        <p class="hint">大学名・学部・学科は各サイト独自のコードを使うことが多いため自動入力対象外です。手入力してください。</p>
+      </fieldset>
+      <fieldset>
+        <legend>メールアドレス</legend>
+        <div class="row"><label>PCメール<input type="text" id="email" placeholder="example@example.com"></label></div>
+        <div class="row"><label>携帯メール<input type="text" id="mobileEmail" placeholder="(任意)"></label></div>
+      </fieldset>
+      <div class="actions">
+        <button type="submit" id="saveBtn">保存</button>
+        <button type="button" id="clearBtn" class="danger">全データ削除</button>
+        <span id="status" class="status"></span>
+      </div>
+    </form>
+  </div>
+  <script src="options.js"></script>
+</body>
+</html>

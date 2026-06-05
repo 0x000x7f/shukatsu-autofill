@@ -1,0 +1,23 @@
+* { box-sizing: border-box; }
+body { font-family: "Yu Gothic", "Hiragino Kaku Gothic Pro", sans-serif; background: #f5f5f7; color: #222; margin: 0; padding: 24px; }
+.container { max-width: 720px; margin: 0 auto; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,.08); padding: 28px 32px; }
+header { margin-bottom: 24px; border-bottom: 1px solid #eee; padding-bottom: 16px; }
+h1 { font-size: 22px; margin: 0 0 8px; }
+.note { font-size: 13px; color: #666; line-height: 1.6; margin: 0; }
+fieldset { border: 1px solid #ddd; border-radius: 6px; padding: 16px 20px; margin-bottom: 20px; }
+legend { font-weight: bold; padding: 0 8px; color: #336; }
+.row { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 12px; }
+label { display: flex; flex-direction: column; flex: 1; font-size: 13px; color: #555; min-width: 140px; }
+label.radio, label.checkbox { flex-direction: row; align-items: center; flex: 0 0 auto; gap: 6px; font-size: 14px; color: #222; }
+input[type="text"], select { margin-top: 4px; padding: 8px 10px; font-size: 14px; border: 1px solid #ccc; border-radius: 4px; background: #fff; }
+input[type="text"]:focus, select:focus { outline: none; border-color: #5b8def; box-shadow: 0 0 0 2px rgba(91,141,239,.2); }
+.hint { font-size: 12px; color: #888; margin: 8px 0 0; }
+#vacationFields.hidden { display: none; }
+.actions { display: flex; align-items: center; gap: 12px; margin-top: 8px; }
+button { padding: 10px 20px; font-size: 14px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; }
+#saveBtn { background: #4a72e0; color: #fff; }
+#saveBtn:hover { background: #3a5cc4; }
+button.danger { background: #fff; color: #c93b3b; border: 1px solid #c93b3b; }
+button.danger:hover { background: #fff0f0; }
+.status { font-size: 13px; color: #388e3c; }
+.status.error { color: #c93b3b; }
