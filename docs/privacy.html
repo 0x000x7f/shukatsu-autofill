@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>プライバシーポリシー | 就活エントリー自動入力</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Hiragino Kaku Gothic Pro", "Yu Gothic", "Meiryo", sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: #333;
+      background: #f7f8fa;
+      padding: 2rem 1rem;
+    }
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 12px;
+      padding: 2.5rem 3rem;
+      border: 1px solid #e5e7eb;
+    }
+    .header {
+      border-bottom: 2px solid #4a72e0;
+      padding-bottom: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    .badge {
+      display: inline-block;
+      background: #e8eeff;
+      color: #4a72e0;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 0.6rem;
+    }
+    h1 { font-size: 22px; color: #111; font-weight: bold; }
+    .meta { font-size: 13px; color: #888; margin-top: 0.4rem; }
+    h2 {
+      font-size: 16px;
+      font-weight: bold;
+      color: #4a72e0;
+      margin: 2rem 0 0.7rem;
+      padding-left: 0.7rem;
+      border-left: 3px solid #4a72e0;
+    }
+    p { margin-bottom: 0.8rem; }
+    ul { padding-left: 1.5rem; margin-bottom: 0.8rem; }
+    li { margin-bottom: 0.3rem; }
+    .highlight {
+      background: #f0f4ff;
+      border: 1px solid #c7d4f8;
+      border-radius: 8px;
+      padding: 1rem 1.2rem;
+      margin: 1rem 0;
+      font-size: 14px;
+    }
+    .highlight strong { color: #4a72e0; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin: 0.8rem 0;
+    }
+    th, td {
+      border: 1px solid #e5e7eb;
+      padding: 0.6rem 0.8rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    th { background: #f0f4ff; color: #4a72e0; font-weight: bold; }
+    .footer {
+      margin-top: 2.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #e5e7eb;
+      font-size: 13px;
+      color: #888;
+      text-align: center;
+    }
+    a { color: #4a72e0; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="badge">Chrome 拡張機能</div>
+      <h1>プライバシーポリシー</h1>
+      <p class="meta">就活エントリー自動入力（shukatsu-autofill）&nbsp;／&nbsp;制定：2026年6月5日</p>
+    </div>
+
+    <div class="highlight">
+      <strong>要点：</strong>入力した個人情報は <strong>お使いのPC内にのみ</strong> 保存されます。外部サーバーへの送信、第三者への提供、クラウドへの同期は一切行いません。
+    </div>
+
+    <h2>1. 収集する個人情報</h2>
+    <p>本拡張機能は、就活エントリーフォームへの自動入力を目的として、ユーザーが任意で入力した以下の個人情報を取り扱います。</p>
+    <table>
+      <tr><th>項目</th><th>例</th></tr>
+      <tr><td>氏名（漢字・カナ・ローマ字）</td><td>山田 太郎 / ヤマダ タロウ / Yamada Taro</td></tr>
+      <tr><td>生年月日・性別</td><td>2000年4月1日・男性</td></tr>
+      <tr><td>現住所・休暇中の連絡先</td><td>郵便番号、都道府県、市区町村、番地、建物名</td></tr>
+      <tr><td>電話番号</td><td>自宅・携帯</td></tr>
+      <tr><td>メールアドレス</td><td>PCメール・携帯メール</td></tr>
+      <tr><td>学校情報（補足）</td><td>ゼミ・研究室名、クラブ名、卒業年月</td></tr>
+    </table>
+    <p>個人情報の入力は任意です。入力しない項目は自動入力されません。</p>
+
+    <h2>2. 利用目的</h2>
+    <p>収集した個人情報は、<strong>就活エントリーフォームへの自動入力</strong>のみを目的として利用します。それ以外の目的には利用しません。</p>
+
+    <h2>3. 保存方法と保存場所</h2>
+    <p>個人情報は <code>chrome.storage.local</code>（Chromeブラウザのローカルストレージ）に保存されます。このデータは：</p>
+    <ul>
+      <li><strong>お使いのPC内にのみ存在</strong>します</li>
+      <li>外部サーバーには送信されません</li>
+      <li>Googleアカウントへのクラウド同期は行われません</li>
+      <li>他のデバイスと共有されません</li>
+    </ul>
+
+    <h2>4. 第三者への提供</h2>
+    <p>個人情報を第三者に提供・開示・売却することは一切ありません。</p>
+
+    <h2>5. 外部通信</h2>
+    <p>本拡張機能は外部サーバーへの通信を行いません。ネットワーク送信権限は使用していません。</p>
+
+    <h2>6. 個人情報の削除</h2>
+    <p>登録した個人情報はいつでも削除できます。</p>
+    <ul>
+      <li><strong>設定画面から削除：</strong> 拡張機能アイコン →「個人情報を編集」→「全データ削除」</li>
+      <li><strong>拡張機能のアンインストール：</strong> Chrome の拡張機能管理画面から削除すると、保存データも自動的に消去されます</li>
+    </ul>
+
+    <h2>7. セキュリティ</h2>
+    <p>個人情報はChromeブラウザのサンドボックス環境内にあり、本拡張機能以外がアクセスすることはできません。ただし、お使いのPC自体のセキュリティ管理（ウイルス対策、不正アクセス対策等）はユーザーの責任において行ってください。</p>
+
+    <h2>8. 未成年者</h2>
+    <p>本拡張機能は就職活動を行う年齢のユーザーを対象としています。18歳未満の方の利用はご遠慮ください。</p>
+
+    <h2>9. プライバシーポリシーの変更</h2>
+    <p>本ポリシーは予告なく変更することがあります。変更後のポリシーはこのページに掲載した時点で効力を生じます。重要な変更がある場合は <a href="https://github.com/0x000x7f/shukatsu-autofill/releases" target="_blank">GitHubのリリースページ</a> でお知らせします。</p>
+
+    <h2>10. お問い合わせ</h2>
+    <p>本ポリシーに関するご質問・ご要望は、GitHubのIssueからお寄せください。</p>
+    <p><a href="https://github.com/0x000x7f/shukatsu-autofill/issues" target="_blank">https://github.com/0x000x7f/shukatsu-autofill/issues</a></p>
+
+    <div class="footer">
+      &copy; 2026 0x000x7f &nbsp;|&nbsp;
+      <a href="https://github.com/0x000x7f/shukatsu-autofill" target="_blank">GitHub</a>
+      &nbsp;|&nbsp; 制定：2026年6月5日
+    </div>
+  </div>
+</body>
+</html>
