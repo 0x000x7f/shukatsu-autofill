@@ -1,5 +1,7 @@
 // プラットフォーム別フィールドマップ
 // scripting.executeScript で注入されるため window スコープに置く
+// 2回目以降の注入で const 再宣言エラーが起きないようガード
+if (!window.JOBHUNT_PLATFORMS) {
 
 // ===== 共通 =====
 
@@ -189,3 +191,5 @@ window.JOBHUNT_DETECT_PLATFORM = function (hostname) {
   }
   return null;
 };
+
+} // end if (!window.JOBHUNT_PLATFORMS)
