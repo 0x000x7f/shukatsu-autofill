@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "就活エントリー自動入力",
+  "version": "0.2.0",
+  "description": "就活エントリーフォーム（i-webs.jp / axol.jp / e2r.jp 他）を自動入力する Chrome 拡張機能",
+  "permissions": ["storage", "scripting", "activeTab"],
+  "host_permissions": [
+    "https://*.i-webs.jp/*",
+    "https://i-webs.jp/*",
+    "https://*.i-web.jpn.com/*",
+    "https://*.axol.jp/*",
+    "https://axol.jp/*",
+    "https://www.e2r.jp/*",
+    "https://e2r.jp/*",
+    "https://*.snar.jp/*",
+    "https://www.mypage.bk.mufg.jp/*",
+    "https://www.recruit.sony.co.jp/*",
+    "https://working.nri.co.jp/*",
+    "https://mypage.smbc-recruitment.jp/*"
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "就活エントリー自動入力",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "options_page": "options/options.html",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
