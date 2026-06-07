@@ -86,6 +86,48 @@
         <span id="status" class="status"></span>
       </div>
     </form>
+
+    <section id="appliedSection">
+      <!-- 一覧（マスター） -->
+      <div id="appliedMaster">
+        <div class="applied-header">
+          <h2>応募履歴・企業メモ</h2>
+          <div class="applied-actions">
+            <button type="button" id="addCompanyBtn">＋ 企業を追加</button>
+            <button type="button" id="copyCsvBtn">CSVをコピー</button>
+            <button type="button" id="clearAppliedBtn" class="danger">全削除</button>
+          </div>
+        </div>
+        <p class="hint">対応サイトで「自動入力」を実行すると企業名が自動で記録されます。<strong>企業名をクリックするとメモ帳ページが開きます。</strong>サイトに登録していない企業も「＋ 企業を追加」で手動登録できます。</p>
+        <div id="appliedList"></div>
+      </div>
+
+      <!-- 詳細（企業メモ帳ページ） -->
+      <div id="appliedDetail" class="hidden">
+        <button type="button" id="backToListBtn" class="back-btn">← 一覧に戻る</button>
+        <div class="detail-card">
+          <label class="detail-field">企業名
+            <input type="text" id="detailName" placeholder="企業名を入力">
+          </label>
+          <div class="row">
+            <label class="detail-field">選考ステータス
+              <select id="detailStatus"></select>
+            </label>
+            <label class="detail-field">次回予定日
+              <input type="date" id="detailNextDate">
+            </label>
+          </div>
+          <label class="detail-field">メモ
+            <textarea id="detailMemo" rows="12" placeholder="選考の記録・面接メモ・提出物・志望動機の下書き・感想など、自由に書き残せます。&#10;入力すると自動で保存されます。"></textarea>
+          </label>
+          <p class="detail-meta" id="detailMeta"></p>
+          <div class="detail-actions">
+            <span id="detailSaveStatus" class="status"></span>
+            <button type="button" id="detailDeleteBtn" class="danger">この企業を削除</button>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
   <script src="options.js"></script>
 </body>

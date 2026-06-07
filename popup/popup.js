@@ -50,10 +50,14 @@ function renderResult(result) {
     ? `<div class="errors">⚠ ${result.errors.map(escapeHtml).join('<br>')}</div>` : '';
   const platform = result.platform
     ? `<div class="platform">プラットフォーム: ${escapeHtml(result.platform)}</div>` : '';
+  const company = result.companyName
+    ? `<div class="company">📝 応募企業として記録: ${escapeHtml(result.companyName)}</div>`
+    : (result.recorded ? `<div class="company">📝 応募企業として記録しました（企業名は設定ページで編集できます）</div>` : '');
   box.innerHTML = `
     ${platform}
     <div><span class="filled">${result.filled}</span> 項目を入力</div>
     <div><span class="skipped">${result.skipped}</span> 項目をスキップ</div>
+    ${company}
     ${errors}
   `;
 }
