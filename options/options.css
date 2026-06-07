@@ -21,3 +21,51 @@ button.danger { background: #fff; color: #c93b3b; border: 1px solid #c93b3b; }
 button.danger:hover { background: #fff0f0; }
 .status { font-size: 13px; color: #388e3c; }
 .status.error { color: #c93b3b; }
+
+/* 応募履歴・企業メモ */
+#appliedSection { margin-top: 28px; border-top: 1px solid #eee; padding-top: 20px; }
+.applied-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.applied-header h2 { font-size: 18px; margin: 0; color: #336; }
+.applied-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.applied-actions button { padding: 7px 14px; font-size: 12px; }
+#addCompanyBtn { background: #4a72e0; color: #fff; }
+#addCompanyBtn:hover { background: #3a5cc4; }
+#copyCsvBtn { background: #eef2fb; color: #3a5cc4; }
+#copyCsvBtn:hover { background: #e0e7f8; }
+.applied-empty { font-size: 13px; color: #888; padding: 14px 0; }
+
+/* 一覧の行 */
+.applied-row { display: flex; align-items: stretch; gap: 8px; border-bottom: 1px solid #f0f0f0; }
+.applied-open {
+  flex: 1 1 auto; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  padding: 10px 8px; background: none; border: none; border-radius: 4px;
+  text-align: left; cursor: pointer; font-weight: normal; min-width: 0;
+}
+.applied-open:hover { background: #f5f7fc; }
+.applied-name-text { flex: 1 1 auto; font-size: 14px; color: #222; min-width: 100px; }
+.applied-badges { flex: 0 0 auto; display: flex; align-items: center; gap: 6px; }
+.status-badge { font-size: 11px; font-weight: bold; padding: 2px 8px; border-radius: 10px; white-space: nowrap; }
+.status-badge.st-active { background: #e3edff; color: #2b5bbd; }
+.status-badge.st-offer  { background: #e6f4ea; color: #1e7e34; }
+.status-badge.st-closed { background: #eee; color: #888; }
+.status-badge.st-none   { background: #fbf0e3; color: #a9701c; }
+.next-badge { font-size: 11px; color: #b08000; white-space: nowrap; }
+.memo-badge { font-size: 12px; }
+.applied-meta { flex: 0 0 auto; font-size: 11px; color: #aaa; white-space: nowrap; }
+.applied-del { flex: 0 0 auto; width: 30px; margin: 6px 0; padding: 0; font-size: 18px; line-height: 1; background: #fff; color: #c93b3b; border: 1px solid #e0c0c0; border-radius: 4px; cursor: pointer; }
+.applied-del:hover { background: #fff0f0; }
+
+/* 詳細（企業メモ帳ページ） */
+#appliedDetail.hidden, #appliedMaster.hidden { display: none; }
+.back-btn { background: none; color: #4a72e0; padding: 4px 0; font-size: 13px; font-weight: bold; }
+.back-btn:hover { text-decoration: underline; }
+.detail-card { margin-top: 12px; }
+.detail-field { display: flex; flex-direction: column; flex: 1; font-size: 13px; color: #555; margin-bottom: 14px; min-width: 140px; }
+#detailName { margin-top: 4px; padding: 9px 11px; font-size: 16px; font-weight: bold; border: 1px solid #ccc; border-radius: 4px; }
+#detailStatus, #detailNextDate { margin-top: 4px; padding: 8px 10px; font-size: 14px; border: 1px solid #ccc; border-radius: 4px; background: #fff; }
+#detailMemo { margin-top: 4px; padding: 10px 12px; font-size: 14px; line-height: 1.7; border: 1px solid #ccc; border-radius: 4px; resize: vertical; font-family: inherit; }
+.detail-field input:focus, .detail-field select:focus, #detailMemo:focus { outline: none; border-color: #5b8def; box-shadow: 0 0 0 2px rgba(91,141,239,.2); }
+.detail-meta { font-size: 11px; color: #999; margin: 4px 0 16px; }
+.detail-meta a { color: #4a72e0; text-decoration: none; }
+.detail-meta a:hover { text-decoration: underline; }
+.detail-actions { display: flex; align-items: center; justify-content: space-between; gap: 12px; }

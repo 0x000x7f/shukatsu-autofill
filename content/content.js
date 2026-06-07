@@ -65,6 +65,33 @@
     return ok;
   };
 
+  // 応募ページから企業名をベストエフォートで推測する。
+  // og:site_name → application-name → og:title → <title> の順に候補を取り、
+  // 区切り文字で分割してから「エントリー」「マイページ」等のノイズ語を除去する。
+  const detectCompanyName = () => {
+    const clean = (s) => (s || '').replace(/[　\s]+/g, ' ').trim();
+    const meta = (sel) => clean(document.querySelector(sel)?.getAttribute('content'));
+    const raw = meta('meta[property="og:site_name"]')
+             || meta('meta[name="application-name"]')
+             || meta('meta[property="og:title"]')
+             || clean(document.title);
+    if (!raw) return '';
+
+    const NOISE = /(エントリー(シート)?|プレエントリー|本エントリー|マイページ|応募(フォーム)?|採用(マイページ|情報|サイト|ページ)?|新卒(採用)?|採用|登録|フォーム|入力|画面|ログイン|会員|個人情報|MyPage|Entry|Login|Recruit(ing|ment)?)/gi;
+    const CORP  = /(株式会社|有限会社|合同会社|会社|銀行|証券|信託|ホールディングス|グループ|Inc\.?|Corp\.?|Co\.?,?\s*Ltd\.?|Ltd\.?|Company|Group|Holdings)/i;
+
+    const segments = raw.split(/[|｜:：／/＞>]+|\s[-−–—]\s/).map(clean).filter(Boolean);
+    // 会社を表す語を含むセグメントを最優先
+    let best = segments.find((s) => CORP.test(s) && clean(s.replace(NOISE, '')).length > 0);
+    if (best) return clean(best.replace(NOISE, '')) || best;
+    // なければノイズ語を除いて最も長いセグメント
+    const remaining = segments
+      .map((s) => clean(s.replace(NOISE, '')))
+      .filter((s) => s.length >= 2)
+      .sort((a, b) => b.length - a.length);
+    return remaining[0] || segments[0] || '';
+  };
+
   for (const [key, def] of Object.entries(MAP)) {
     if (def.skipIf && profile[def.skipIf]) { result.skipped++; continue; }
     let value = profile[key];
@@ -85,5 +112,32 @@
     } catch (e) { result.errors.push(`${key}: ${e.message}`); }
     if (ok) result.filled++; else result.skipped++;
   }
+
+  // 応募企業を記録（同一フォームURLは重複させず日時を更新）
+  try {
+    const companyName = detectCompanyName();
+    result.companyName = companyName;
+    const pageKey = location.origin + location.pathname;
+    const now = new Date().toISOString();
+    const { appliedCompanies = [] } = await chrome.storage.local.get('appliedCompanies');
+    const existing = appliedCompanies.find((c) => c.key === pageKey);
+    if (existing) {
+      existing.date = now;
+      // ユーザーが手修正した名前は上書きしない
+      if (companyName && !existing.edited) existing.name = companyName;
+      result.recorded = 'updated';
+    } else {
+      appliedCompanies.push({
+        id: Date.now(), name: companyName, platform: platform.name,
+        url: location.href, key: pageKey, date: now, edited: false,
+        status: '応募済み', nextDate: '', memo: '',
+      });
+      result.recorded = 'added';
+    }
+    await chrome.storage.local.set({ appliedCompanies });
+  } catch (e) {
+    result.errors.push('応募企業の記録に失敗: ' + e.message);
+  }
+
   return result;
 })();
